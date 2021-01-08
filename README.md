@@ -23,7 +23,11 @@ Write 2 simple programs in the Hack assembly language
 Build an implementation of a memory unit and CPU using logic gates built in previous weeks.
 
 #### Week 6 /06
-Write an assembler to translate Hack assembly language code into Hack machine language code. Wrote it in python.
+Write an assembler to translate Hack assembly language code into Hack machine language code. (Python)
 
 #### Week 7 /07
-Write a compiler to translate Hack VM code into Hack assembly language. Wrote it in python.
+Write a simple compiler to translate Hack VM code into Hack assembly language. Includes basic 
+functionality such as arithmetic, push and pop operations. (Python)
+
+#### Week 8 /08
+Write a more complicated compiler, extended from Week 7's to translate Hack VM code into Hack assembly language. Includes additional functionality such as flow branching and functions. (Python)
