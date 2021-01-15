@@ -1,0 +1,114 @@
+class Ship {
+   field int x, y; // screen location of the square's top-left corner
+   field int vx, vy; // velocity x and y
+   field int size;
+
+   /** Constructs a new square with a given location and size. */
+   constructor Ship new(int Ax, int Ay) {
+      let x = Ax;
+      let y = Ay;
+      let vx = 0;
+      let vy = 0;
+      let size = 10;
+      do draw();
+      return this;
+   }
+
+   /** Disposes this square. */
+   method void dispose() {
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   /** Draws the square on the screen. */
+   method void draw() {
+      do Screen.setColor(true);
+      do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+   /** Erases the square from the screen. */
+   method void erase() {
+      do Screen.setColor(false);
+      do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+   method void clearPrev() {
+      // clear previous square
+      do Screen.setColor(false);
+      do Screen.drawRectangle(x, y, x + size, y + size);
+      return;
+   }
+
+   method void moveLeft() {
+      let vx = -5;
+      return;
+   }
+
+   method void moveRight() {
+      let vx = 5;
+      return;
+   }
+
+   method void jump() {
+      if (vy = 0) { let vy = -5; }
+      return;
+   }
+
+   /** moves based on velocity x and velocity y */
+   method void move() {
+      // attempt to move on horizontal axis
+      if (vx > 0) {
+        if ((x + size + vx) < 510) { // if moving right wont go beyond right border
+          do clearPrev();
+          let x = x + vx;
+          do Screen.setColor(true);
+          do Screen.drawRectangle(x, y, x + size, y + size);
+          let vx = 0;
+        }
+      }
+
+      if (vx < 0) {
+        if ((x + vx) > 1) { // if moving left wont go beyond left border
+          do clearPrev();
+          let x = x + vx;
+          do Screen.setColor(true);
+          do Screen.drawRectangle(x, y, x + size, y + size);
+          let vx = 0;
+        }
+      }
+
+      // attempt to move on vert axis
+      if (vy < 0) { 
+        if ((y + vy) > 1) { // if moving up wont go beyond top border
+          do clearPrev();
+          let y = y + vy;
+          do Screen.setColor(true);
+          do Screen.drawRectangle(x, y, x + size, y + size);
+        }
+      }
+
+      // gravity if the square isnt on the floor
+      if ((y + size) < 254) {
+        let vy = vy + 1;
+      }
+
+      if (vy > 0) { 
+        if ((y + size + vy) < 254) { // if moving down wont go beyond bottom border
+          do clearPrev();
+          let y = y + vy;
+          do Screen.setColor(true);
+          do Screen.drawRectangle(x, y, x + size, y + size);
+        } 
+        else {
+          do clearPrev();
+          let y = 254 - size;
+          do Screen.setColor(true);
+          do Screen.drawRectangle(x, y, x + size, y + size);
+          let vy = 0;
+        }
+      }
+      return;
+   }
+}

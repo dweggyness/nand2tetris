@@ -1,0 +1,16 @@
+
+// Simple platformer mechanics, 
+// ARROW LEFT / ARROW RIGHT to move on horizontal axis
+// ARROW UP to jump
+// Gravity and out of bounds 
+
+class Main {
+    function void main() {
+        var Game game;
+        let game = Game.new();
+        do game.run();
+        do game.dispose();
+        return;
+    }
+}
+
