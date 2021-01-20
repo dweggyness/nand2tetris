@@ -31,3 +31,11 @@ functionality such as arithmetic, push and pop operations. (Python)
 
 #### Week 8 /08
 Write a more complicated compiler, extended from Week 7's to translate Hack VM code into Hack assembly language. Includes additional functionality such as flow branching and functions. (Python)
+
+#### Week 9 /09
+Write a simple program using the Jack programming language. Built a simple platformer movement system
+( jumping with gravity ). (Python)
+
+#### Week 10 /10
+Write the syntax analyzer for a compiler to compile from Hack .Jack code into the Hack VM Language. Includes a tokenizer and parser. Also learnt my lesson from Week 7/8 and decided to do it using OOP
+principles instead of chaining a bunch of functions. (Python)
